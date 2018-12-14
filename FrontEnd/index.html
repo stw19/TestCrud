@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <meta name='description' content=''>
+    <meta name='author' content=''>
+
+    <title>FrontEnd</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href='css/style.css' rel='stylesheet'>
+</head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
+      <div class='container'>
+        <a class='navbar-brand' href='#'>FrontEnd</a>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class='container'>
+
+      <div class='row'>
+
+        <div class='col-lg-3'>
+          <h1 class='my-4'>Operazioni</h1>
+          <div class='list-group'>
+              <a href='#' id='createid' class='list-group-item active'>Create</a>
+              <a href='#' id='readid' class='list-group-item'>Read/Update/Delete</a>
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class='col-lg-9'>
+            <!-- form inserimento nuovo utente -->
+            <div class='card mt-4 mb-4' id='create'>
+                <div class='card-body'>
+                    <h3>Crea un nuovo utente</h3>
+                    <form>
+                        <div class='form-group'>
+                            <input type='email' class='form-control' id='inputEmail' placeholder='Email'>
+                        </div>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' id='inputUsername' placeholder='Username'>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-group col-md-6'>
+                                <input type='text' class='form-control' id='inputName' placeholder='First name'>
+                            </div>
+                            <div class='form-group col-md-6'>
+                                <input type='text' class='form-control' id='inputSurname' placeholder='Last name'>
+                            </div>
+                        </div>
+                        <a id='creaNuovo' class='btn btn-primary' role='button'>Crea</a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- /.card -->
+            <div class='card mt-4 mb-4' id='read'>
+                <div class='card-body'>
+                    <h3 class='card-title'>Read/Update/Delete</h3>
+                    <p class="font-weight-light">(Click <i>inline</i> per modificare elemento)</p>
+                    <form class='form-inline'>
+                        <label class='sr-only' for='inlineFormInputName2'>Name</label>
+                        <input type='text' class='form-control mb-2 mr-sm-2' id='inputID' placeholder='ID'>
+                        <label class='sr-only' for='inlineFormInputGroupUsername2'>Username - Name - Surname - email</label>
+                        <div class='input-group mb-2 mr-sm-2'>
+                            <div class='input-group-prepend'>
+                                <div class='input-group-text'>@</div>
+                            </div>
+                            <input type='text' class='form-control' id='inputRicerca' placeholder='Search'>
+                        </div>
+
+                        <a id='cercaid' class='btn btn-primary mb-2' role='button'>Cerca</a>
+                    </form>
+                    <div id='result'>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class='py-2 bg-dark'>
+      <div class='container'>
+        <p class='m-0 text-center text-white'>Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src='vendor/jquery/jquery.min.js'></script>
+      <script>
+          var toggleModifica = 0;
+          $(document).ready(function () {
+              $('#create, #read, #update, #del
