@@ -18,22 +18,22 @@ $db = $database->getConnection();
 $user = new User($db);
  
 // get id of user to be edited
-$data = $_POST;
-//$data = json_decode(file_get_contents("php://input"));
+//$data = $_POST;
+$data = json_decode(file_get_contents("php://input"));
  
 // set ID property of user to be edited
-$user->id = $data['id'];
-//$user->id = $data->id;
+//$user->id = $data['id'];
+$user->id = $data->id;
  
 // set user property values
-$user->username = $data["username"];
+/*$user->username = $data["username"];
 $user->nome = $data["nome"];
 $user->cognome = $data["cognome"];
-$user->email = $data["email"];
-/*$user->username = $data->username;
+$user->email = $data["email"];*/
+$user->username = $data->username;
 $user->nome = $data->nome;
 $user->cognome = $data->cognome;
-$user->email = $data->email;*/
+$user->email = $data->email;
  
 // update the user
 if($user->update()){

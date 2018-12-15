@@ -20,17 +20,18 @@ function updateVal(currentEle, value) {
   $(".thVal").focus();
   $(".thVal").keyup(function (event) {
     if (event.keyCode == 13) {
-      $(currentEle).html($(".thVal").val().trim());
-      toggleModifica = 0;
+        $(currentEle).html($(".thVal").val().trim());
+        var id = currentEle.split("-");
+        update(id);
+        toggleModifica = 0;
     }
   });
 
   $(".thVal").focusout(function () {
-    $(currentEle).html($(".thVal").val().trim());
-    //$(".thVal").val().trim() actual value
-    var id = currentEle.split("-");
-    update(id);
-    toggleModifica = 0;
+        $(currentEle).html($(".thVal").val().trim());
+        var id = currentEle.split("-");
+        update(id);
+        toggleModifica = 0;
   });
 }
 
@@ -42,13 +43,17 @@ function update(id) {
     "cognome": $("td#cognome-" + id[1]).html(),
     "email": $("td#email-" + id[1]).html()
   }
+  console.log(data);
   $.ajax({
     url: '../api/product/update.php',
     method: 'POST',
-    data: data//,
-    //dataType: 'JSON',
+    data: JSON.stringify(data),
+    dataType: 'JSON',
     //async: false
-  }).fail(function () {
+  }).done(function () {
+      console.log("Aggiornato correttamente");
+    }).fail(function () {
+    console.log("Operazione non andata a buon fine");
     alert("Operazione non andata a buon fine.");
   });
 }
@@ -67,7 +72,7 @@ $(document).on('click', 'button.delete', function () {
   if (domanda === true) {
     $.ajax({
       url: '../api/product/delete.php',
-      method: 'DELETE',
+      method: 'POST',
       data: { id: currID },
       dataType: 'JSON',
       async: false
